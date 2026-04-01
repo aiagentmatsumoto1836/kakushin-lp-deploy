@@ -1,0 +1,2254 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAKUSHIN｜社長・CMOのためのマーケティング顧問サービス</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;family=DM+Serif+Display&amp;family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1117;
+    --ink-soft: #2c2f3a;
+    --ink-muted: #6b7080;
+    --gold: #b8964a;
+    --gold-light: #d4af6e;
+    --gold-pale: #f5eddc;
+    --cream: #faf8f4;
+    --white: #ffffff;
+    --rule: rgba(184,150,74,0.25);
+    --navy: #111827;
+    --navy-mid: #1e2a3a;
+    --shadow-gold: 0 0 40px rgba(184,150,74,0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.8;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ───── STICKY NAV ───── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(15,17,23,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 600; letter-spacing: 0.2em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+    padding: 10px 24px;
+    border: none; cursor: pointer;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ───── HERO ───── */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    padding: 120px 48px 80px;
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(184,150,74,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184,150,74,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-glow {
+    position: absolute; top: 30%; left: 50%; transform: translate(-50%,-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(184,150,74,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: 0.35em; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 32px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; display: block; width: 48px; height: 1px; background: var(--gold);
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(184,150,74,0.12);
+    border: 1px solid rgba(184,150,74,0.3);
+    color: var(--gold-light);
+    font-size: 11px; letter-spacing: 0.18em;
+    padding: 6px 16px; margin-bottom: 40px;
+  }
+  h1.hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 300; line-height: 1.55;
+    color: var(--white);
+    text-align: center; max-width: 780px;
+    letter-spacing: 0.04em; margin-bottom: 24px;
+  }
+  h1.hero-title em {
+    font-style: normal; color: var(--gold-light);
+  }
+  .hero-sub {
+    font-size: clamp(13px, 1.5vw, 15px);
+    color: rgba(255,255,255,0.55);
+    text-align: center; max-width: 520px;
+    letter-spacing: 0.04em; margin-bottom: 56px;
+    line-height: 2;
+  }
+  .hero-cta-wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 14px; font-weight: 700; letter-spacing: 0.12em;
+    padding: 18px 48px;
+    border: none; cursor: pointer;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 12px;
+    transition: all 0.25s; position: relative; overflow: hidden;
+  }
+  .btn-primary::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
+    transform: translateX(-100%); transition: transform 0.5s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(184,150,74,0.35); }
+  .btn-primary:hover::after { transform: translateX(100%); }
+  .btn-ghost {
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    font-size: 12px; letter-spacing: 0.1em;
+    padding: 12px 32px;
+    border: 1px solid rgba(255,255,255,0.15); cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); }
+  .micro-trust {
+    display: flex; gap: 28px; flex-wrap: wrap; justify-content: center;
+    margin-top: 8px;
+  }
+  .micro-trust span {
+    font-size: 11px; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.35);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .micro-trust span::before { content: '✓'; color: var(--gold); }
+
+  /* ───── SECTION BASE ───── */
+  section { position: relative; }
+  .section-inner { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+  .section-label {
+    font-size: 10px; letter-spacing: 0.4em; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 300; line-height: 1.5; letter-spacing: 0.05em;
+    color: var(--ink);
+  }
+  .section-title.white { color: var(--white); }
+  .section-lead {
+    font-size: 15px; color: var(--ink-muted);
+    line-height: 2; max-width: 620px; margin-top: 16px;
+  }
+  .section-lead.white { color: rgba(255,255,255,0.55); }
+  hr.rule { border: none; border-top: 1px solid var(--rule); margin: 0; }
+
+  /* ───── PAIN SECTION ───── */
+  #pain { background: var(--cream); padding: 120px 0; }
+  .pain-intro { margin-bottom: 64px; }
+  .checklist {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; border: 1px solid var(--rule);
+  }
+  .check-item {
+    padding: 28px 36px;
+    border-bottom: 1px solid var(--rule);
+    display: flex; align-items: flex-start; gap: 20px;
+    transition: background 0.2s;
+  }
+  .check-item:nth-child(odd) { border-right: 1px solid var(--rule); }
+  .check-item:hover { background: rgba(184,150,74,0.04); }
+  .check-box {
+    width: 22px; height: 22px; border: 1.5px solid var(--rule);
+    flex-shrink: 0; margin-top: 2px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .check-text { font-size: 14px; line-height: 1.7; color: var(--ink-soft); }
+  .pain-conclusion {
+    margin-top: 64px; padding: 48px;
+    background: var(--navy); position: relative; overflow: hidden;
+  }
+  .pain-conclusion::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 4px; background: var(--gold);
+  }
+  .pain-conclusion p {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(16px, 2vw, 20px); font-weight: 300;
+    color: var(--white); line-height: 1.8; letter-spacing: 0.05em;
+  }
+  .pain-conclusion em { color: var(--gold-light); font-style: normal; }
+  .soft-cta {
+    margin-top: 48px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .soft-cta-label { font-size: 12px; color: var(--ink-muted); letter-spacing: 0.08em; }
+
+  /* ───── RISK SECTION ───── */
+  #risk { background: var(--navy-mid); padding: 120px 0; }
+  .risk-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 行定義: area / headline / desc / sub — 各行を subgrid で共有 */
+    grid-template-rows: auto auto auto 1fr;
+    gap: 2px;
+    margin-top: 64px;
+  }
+  .risk-card {
+    /* 4行すべてを占有して subgrid で行高さを揃える */
+    grid-row: 1 / 5;
+    display: grid;
+    grid-template-rows: subgrid;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(184,150,74,0.1);
+    padding: 40px 32px;
+    box-sizing: border-box;
+  }
+  /* subgrid 非対応ブラウザ fallback */
+  @supports not (grid-template-rows: subgrid) {
+    .risk-card { display: flex; flex-direction: column; }
+  }
+  .risk-area {
+    font-size: 10px; letter-spacing: 0.3em; color: var(--gold);
+    text-transform: uppercase;
+    padding-bottom: 12px; border-bottom: 1px solid var(--rule);
+    align-self: start;
+  }
+  .risk-headline {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px; font-weight: 300; color: var(--white);
+    line-height: 1.5;
+    align-self: start;
+    padding-top: 20px;
+  }
+  .risk-desc {
+    font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.9;
+    align-self: start;
+    padding-top: 16px;
+  }
+  .risk-subs {
+    display: flex; flex-direction: column; gap: 16px;
+    align-self: start;
+    padding-top: 20px;
+  }
+  .risk-sub {
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.03);
+    border-left: 2px solid rgba(184,150,74,0.3);
+  }
+  .risk-sub-title { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.6); margin-bottom: 4px; }
+  .risk-sub-desc { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.7; }
+  .risk-keynote {
+    margin-top: 64px; text-align: center;
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(18px, 2.5vw, 28px); font-weight: 300;
+    color: var(--white); line-height: 1.6;
+  }
+  .risk-keynote em { color: var(--gold-light); font-style: normal; }
+
+  /* ───── SOLUTION SECTION ───── */
+  #solution { background: var(--cream); padding: 120px 0; }
+  .solution-intro { max-width: 680px; }
+  .solution-core {
+    margin-top: 80px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .sol-card {
+    padding: 48px 40px;
+    border: 1px solid var(--rule);
+    position: relative;
+  }
+  .sol-card.featured {
+    background: var(--navy);
+    border-color: var(--gold);
+  }
+  .sol-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px; font-weight: 300;
+    color: rgba(184,150,74,0.2);
+    line-height: 1; margin-bottom: 24px;
+  }
+  .sol-card.featured .sol-num { color: rgba(184,150,74,0.35); }
+  .sol-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px; font-weight: 400; color: var(--ink);
+    margin-bottom: 12px; line-height: 1.5;
+  }
+  .sol-card.featured .sol-title { color: var(--white); }
+  .sol-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.9; }
+  .sol-card.featured .sol-desc { color: rgba(255,255,255,0.5); }
+  .sol-badge {
+    position: absolute; top: -12px; right: 24px;
+    background: var(--gold); color: var(--ink);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+    padding: 4px 14px;
+  }
+  .solution-cta { margin-top: 64px; text-align: center; }
+
+  /* ───── STRENGTHS ───── */
+  #strengths { background: var(--white); padding: 120px 0; }
+  .strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* 行定義: num / label / value / desc — subgridで全カラム共有 */
+    grid-template-rows: auto auto auto 1fr;
+    gap: 0;
+    margin-top: 64px;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+  .str-item {
+    /* 4行すべてを占有して subgrid で行高さを揃える */
+    grid-row: 1 / 5;
+    display: grid;
+    grid-template-rows: subgrid;
+    padding: 40px 28px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    box-sizing: border-box;
+    transition: background 0.2s;
+  }
+  .str-item:hover { background: var(--gold-pale); }
+  /* subgrid 非対応ブラウザ fallback */
+  @supports not (grid-template-rows: subgrid) {
+    .str-item { display: flex; flex-direction: column; gap: 16px; }
+  }
+  .str-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 300; color: var(--gold); line-height: 1;
+    align-self: start;
+  }
+  .str-label {
+    font-size: 13px; font-weight: 500; color: var(--ink); line-height: 1.5;
+    align-self: start;
+    padding-top: 12px;
+  }
+  .str-value {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 22px; font-weight: 300; color: var(--ink);
+    line-height: 1.3;
+    align-self: start;
+    padding-top: 8px;
+  }
+  .str-value .unit { font-size: 13px; color: var(--ink-muted); }
+  .str-desc {
+    font-size: 12px; color: var(--ink-muted); line-height: 1.8;
+    align-self: start;
+    padding-top: 12px;
+  }
+
+  /* ───── COMPARISON ───── */
+  #comparison { background: var(--cream); padding: 120px 0; }
+  .comp-intro { max-width: 600px; margin-bottom: 64px; }
+  .comp-table-wrap { overflow-x: auto; }
+  table.comp {
+    width: 100%; border-collapse: collapse;
+    font-size: 13px;
+  }
+  table.comp th {
+    padding: 16px 20px;
+    text-align: center; font-size: 12px; letter-spacing: 0.1em;
+    border-bottom: 2px solid var(--rule);
+    font-weight: 500; color: var(--ink-muted);
+  }
+  table.comp th.highlight {
+    background: var(--navy); color: var(--gold);
+    border-color: var(--gold);
+  }
+  table.comp td {
+    padding: 20px; text-align: center;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink-soft); line-height: 1.6;
+  }
+  table.comp td:first-child { text-align: left; font-weight: 500; font-size: 12px; color: var(--ink-muted); }
+  table.comp td.highlight { background: rgba(15,17,23,0.04); font-weight: 500; color: var(--ink); }
+  table.comp .good { color: var(--gold); font-weight: 700; }
+  table.comp .bad { color: #c0c4cc; }
+  .comp-cta { margin-top: 64px; text-align: center; }
+
+  /* ───── ADVISORS ───── */
+  #advisors { background: var(--navy); padding: 120px 0; }
+  .advisors-header { margin-bottom: 64px; }
+
+  /* ── Carousel wrapper ── */
+  .advisors-carousel-wrap { position: relative; }
+  .advisors-carousel { overflow: hidden; }
+
+  /*
+   * TRACK: display:grid で全カードを横に並べる。
+   * 各カードの列幅 = コンテナの 1/3（PC）または 100%（SP）。
+   * 行は 6行固定（avatar / career / title / area / subject / accordion）。
+   * カードに grid-row:subgrid を使い、同じ行テンプレートを共有することで
+   * 「項目ごとの始まり高さ」を CSS だけで完全に揃える。
+   *
+   * ※ subgrid 対応: Chrome112+, Firefox71+, Safari16+
+   *   非対応ブラウザへの fallback は JS equalizeRowHeights() で対応
+   */
+  .advisors-track {
+    display: grid;
+    /* PC: カード幅 = (コンテナ-gap×2)/3、カード数分の列を auto で伸ばす */
+    grid-template-columns: repeat(var(--adv-total, 3), calc((100% - 4px) / 3));
+    grid-template-rows: auto auto auto auto auto 1fr; /* 6行: avatar career title area subject accordion */
+    gap: 0 2px;
+    transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+    will-change: transform;
+    align-items: start; /* 各セルを上揃えにする */
+  }
+
+  /* ── Card: 6行分を subgrid で使う ── */
+  .advisor-card {
+    grid-row: 1 / 7;            /* 6行すべてを占有 */
+    display: grid;
+    grid-template-rows: subgrid; /* 親グリッドの行テンプレートを継承 */
+    min-width: 0;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(184,150,74,0.12);
+    padding: 0;                  /* paddingはrow内の各要素に持たせる */
+    transition: border-color 0.3s, background 0.3s;
+    position: relative;
+    box-sizing: border-box;
+  }
+  .advisor-card:hover {
+    border-color: rgba(184,150,74,0.4);
+    background: rgba(255,255,255,0.07);
+  }
+
+  /* ── Row cells: 各行の padding/border を統一 ── */
+  .adv-row {
+    width: 100%;
+    padding-left: 28px;
+    padding-right: 28px;
+    box-sizing: border-box;
+    /* 各rowは align-self:start でセル内の上に張り付く */
+    align-self: start;
+  }
+  .adv-row--avatar  { padding-top: 36px; padding-bottom: 20px; }
+  .adv-row--career  { padding-bottom: 6px; }
+  .adv-row--title   { padding-bottom: 8px; }
+  .adv-row--area    { padding-bottom: 16px; border-top: none; }
+  .adv-row--subject { padding-bottom: 20px; }
+  .adv-row--accordion {
+    /* アコーディオン行はセルいっぱいに伸ばす */
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+  }
+
+  /* ── subgrid 非対応ブラウザ fallback ── */
+  @supports not (grid-template-rows: subgrid) {
+    .advisor-card {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .advisor-avatar {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy-mid), rgba(184,150,74,0.3));
+    border: 2px solid rgba(184,150,74,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; color: var(--gold);
+    flex-shrink: 0; overflow: hidden;
+  }
+  .advisor-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  .advisor-career {
+    font-size: 11px; letter-spacing: 0.1em; color: var(--gold); line-height: 1.5;
+  }
+  .advisor-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px; font-weight: 300; color: var(--white); line-height: 1.4;
+  }
+  .advisor-area {
+    font-size: 12px; color: rgba(255,255,255,0.4);
+    border-top: 1px solid rgba(184,150,74,0.1);
+    padding-top: 14px; line-height: 1.7;
+  }
+  .advisor-subject { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    background: rgba(184,150,74,0.1); border: 1px solid rgba(184,150,74,0.2);
+    color: var(--gold-light); font-size: 10px; letter-spacing: 0.08em;
+    padding: 4px 10px;
+  }
+
+  /* ── Accordion ── */
+  .adv-accordion {
+    border-top: 1px solid rgba(184,150,74,0.15);
+    padding: 0 28px;
+    flex: 1; /* accordion行のセルいっぱいに伸ばす */
+  }
+  .adv-acc-trigger {
+    width: 100%; padding: 16px 0;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 11px; letter-spacing: 0.12em; color: rgba(255,255,255,0.5);
+    cursor: pointer; background: none; border: none; text-align: left;
+    transition: color 0.2s;
+  }
+  .adv-acc-trigger:hover { color: var(--gold-light); }
+  .adv-acc-icon {
+    font-size: 18px; font-weight: 300; color: var(--gold);
+    transition: transform 0.35s; flex-shrink: 0; line-height: 1;
+  }
+  .adv-accordion.open .adv-acc-icon { transform: rotate(45deg); }
+  .adv-acc-body { max-height: 0; overflow: hidden; transition: max-height 0.45s ease; }
+  .adv-accordion.open .adv-acc-body { max-height: 800px; }
+  .adv-acc-body-inner { padding-bottom: 24px; }
+
+  .adv-acc-section { margin-bottom: 20px; }
+  .adv-acc-section:last-child { margin-bottom: 0; }
+  .adv-acc-section-label {
+    font-size: 9px; letter-spacing: 0.3em; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .adv-acc-section-label::after { content:''; flex:1; height:1px; background:rgba(184,150,74,0.15); }
+  .adv-acc-text { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.85; }
+  .result-item {
+    padding-left: 12px; border-left: 2px solid rgba(184,150,74,0.3);
+    margin-bottom: 8px; line-height: 1.65; font-size: 12px; color: rgba(255,255,255,0.45);
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .skill-tag {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.45); font-size: 10px; padding: 3px 9px;
+  }
+
+  /* ── Carousel nav ── */
+  .carousel-nav {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin-top: 40px;
+  }
+  .carousel-btn {
+    width: 44px; height: 44px;
+    border: 1px solid rgba(184,150,74,0.3); background: none;
+    color: var(--gold); font-size: 18px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .carousel-btn:hover { background: rgba(184,150,74,0.15); border-color: var(--gold); }
+  .carousel-btn:disabled { opacity: 0.25; cursor: default; }
+  .carousel-dots { display: flex; gap: 8px; align-items: center; }
+  .carousel-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(184,150,74,0.25); cursor: pointer;
+    transition: background 0.2s, transform 0.2s; border: none;
+  }
+  .carousel-dot.active { background: var(--gold); transform: scale(1.4); }
+
+  .advisors-note {
+    margin-top: 48px; text-align: center;
+    font-size: 12px; color: rgba(255,255,255,0.3); line-height: 2;
+  }
+  .advisors-cta { margin-top: 48px; text-align: center; }
+  #advisor-loading {
+    padding: 80px; text-align: center;
+    color: rgba(255,255,255,0.3); font-size: 14px; letter-spacing: 0.1em; width: 100%;
+  }
+  .loading-dots::after { content: ''; animation: dots 1.5s steps(3,end) infinite; }
+  @keyframes dots {
+    0%   { content: ''; }
+    33%  { content: '　·'; }
+    66%  { content: '　··'; }
+    100% { content: '　···'; }
+  }
+
+  /* ── SP: 1カード表示 ── */
+  @media (max-width: 768px) {
+    .advisors-track {
+      grid-template-columns: repeat(var(--adv-total, 1), 100%);
+    }
+  }
+
+  /* ───── FAQ (1 column) ───── */
+
+  /* ───── CASES ───── */
+  #cases { background: var(--cream); padding: 120px 0; }
+  .cases-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 0; margin-top: 64px;
+    border: 1px solid var(--rule);
+  }
+  .case-card {
+    padding: 40px 36px;
+    border-right: 1px solid var(--rule);
+    position: relative;
+  }
+  .case-card:last-child { border-right: none; }
+  .case-industry {
+    font-size: 10px; letter-spacing: 0.25em; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .case-company { font-size: 12px; color: var(--ink-muted); margin-bottom: 24px; }
+  .case-label { font-size: 11px; color: var(--ink-muted); letter-spacing: 0.1em; margin-bottom: 8px; }
+  .case-issue { font-size: 14px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 24px; }
+  .case-arrow {
+    text-align: center; color: var(--gold); font-size: 20px; margin-bottom: 24px;
+  }
+  .case-result {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 22px; font-weight: 300; color: var(--ink);
+    line-height: 1.4;
+  }
+  .case-result span { color: var(--gold); font-weight: 600; }
+
+  /* ───── FLOW ───── */
+  #flow { background: var(--white); padding: 120px 0; }
+
+  /* コネクタライン：ステップ間を結ぶ横線。
+     grid上のpseudo要素は使わず、独立した要素で描く */
+  .flow-connector-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin-top: 64px;
+    margin-bottom: 0;
+    position: relative;
+  }
+  /* 各セルの中央上部に番号ボックスを置き、
+     セル間はbefore/afterで横線を引く */
+  .flow-connector-row::before {
+    content: '';
+    position: absolute;
+    /* ボックス高さ56px の中央 = 28px */
+    top: 28px;
+    /* 最初のセルの中央から最後のセルの中央まで */
+    left: calc(100% / 12);
+    right: calc(100% / 12);
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      rgba(184,150,74,0.15) 0%,
+      var(--gold) 20%,
+      var(--gold) 80%,
+      rgba(184,150,74,0.15) 100%
+    );
+    pointer-events: none;
+  }
+
+  .flow-num-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .flow-num-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .step-num {
+    width: 56px; height: 56px;
+    border: 1px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 300; color: var(--gold);
+    background: var(--white);
+    position: relative; z-index: 1; /* 横線より前面に */
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+
+  /* テキスト部分：6列グリッドで番号と揃える */
+  .flow-steps {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    margin-top: 24px;
+  }
+  .flow-step {
+    padding: 0 12px;
+    text-align: center;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .step-title {
+    font-size: 13px; font-weight: 500; color: var(--ink);
+    margin-bottom: 10px; line-height: 1.4;
+    /* 全ステップのタイトルを同じ高さ領域に揃える */
+    min-height: 2.8em;
+    display: flex; align-items: flex-start; justify-content: center;
+  }
+  .step-desc {
+    font-size: 11px; color: var(--ink-muted); line-height: 1.8;
+    text-align: center;
+  }
+
+  .flow-note {
+    margin-top: 52px; text-align: center;
+    font-size: 12px; color: var(--ink-muted); letter-spacing: 0.05em;
+    display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
+  }
+  .flow-note span::before { content: '✓ '; color: var(--gold); }
+  .flow-cta { margin-top: 64px; text-align: center; }
+
+  @media (max-width: 768px) {
+    .flow-connector-row,
+    .flow-num-row,
+    .flow-steps { grid-template-columns: repeat(2, 1fr); }
+    .flow-connector-row::before { display: none; }
+    .flow-note { flex-direction: column; gap: 12px; align-items: center; }
+    .step-title { min-height: auto; }
+  }
+
+  /* ───── FAQ (1 column) ───── */
+  #faq { background: var(--cream); padding: 120px 0; }
+  .faq-grid {
+    display: grid; grid-template-columns: 1fr;
+    gap: 2px; margin-top: 64px; max-width: 800px; margin-left: auto; margin-right: auto;
+  }
+  .faq-item {
+    background: var(--white); border: 1px solid var(--rule);
+    padding: 0;
+  }
+  .faq-q {
+    padding: 28px 32px;
+    font-size: 14px; font-weight: 500; color: var(--ink);
+    cursor: pointer;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+    user-select: none;
+  }
+  .faq-q::after {
+    content: '+'; flex-shrink: 0;
+    font-size: 20px; font-weight: 300; color: var(--gold);
+    transition: transform 0.3s;
+  }
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease;
+    border-top: 0px solid var(--rule);
+  }
+  .faq-item.open .faq-a {
+    max-height: 400px;
+    border-top: 1px solid var(--rule);
+  }
+  .faq-a-inner {
+    padding: 24px 32px;
+    font-size: 13px; color: var(--ink-muted); line-height: 1.9;
+  }
+  .faq-cta { margin-top: 64px; text-align: center; }
+
+  /* ───── CLOSING ───── */
+  #closing {
+    background: var(--navy);
+    padding: 160px 48px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  #closing::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(184,150,74,0.08) 0%, transparent 65%);
+  }
+  .closing-inner { position: relative; max-width: 680px; margin: 0 auto; }
+  .closing-label {
+    font-size: 10px; letter-spacing: 0.4em; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 24px;
+  }
+  .closing-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(22px, 3vw, 38px); font-weight: 300;
+    color: var(--white); line-height: 1.6; letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+  .closing-sub {
+    font-size: 14px; color: rgba(255,255,255,0.4);
+    line-height: 2; margin-bottom: 56px; letter-spacing: 0.04em;
+  }
+  .closing-trust {
+    display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+    margin-top: 32px;
+  }
+  .closing-trust span {
+    font-size: 12px; color: rgba(255,255,255,0.3);
+    display: flex; align-items: center; gap: 8px; letter-spacing: 0.06em;
+  }
+  .closing-trust span::before { content: '✓'; color: var(--gold); }
+
+  /* ───── FOOTER ───── */
+  footer {
+    background: var(--ink);
+    padding: 48px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600; letter-spacing: 0.2em; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .footer-copy { font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.1em; }
+
+  /* ───── RESPONSIVE ───── */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .section-inner { padding: 0 20px; }
+    #hero { padding: 100px 20px 64px; }
+    .checklist { grid-template-columns: 1fr; }
+    .check-item:nth-child(odd) { border-right: none; }
+    .risk-grid { grid-template-columns: 1fr; }
+    .solution-core { grid-template-columns: 1fr; }
+    .strengths-grid { grid-template-columns: repeat(2,1fr); }
+    .str-item:last-child { grid-column: 1/-1; }
+    .cases-grid { grid-template-columns: 1fr; }
+    .case-card { border-right: none; border-bottom: 1px solid var(--rule); }
+    .flow-steps { grid-template-columns: 1fr 1fr; }
+    .flow-steps::before { display: none; }
+    .closing-trust { gap: 20px; }
+    #closing { padding: 100px 20px; }
+    footer { padding: 32px 20px; }
+    .flow-note { flex-direction: column; gap: 12px; }
+  }
+
+  /* ───── SCROLL ANIMATIONS ───── */
+  .fade-up {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <a class="nav-logo" href="#hero">KAKUSHIN</a>
+  <a class="nav-cta" href="#closing">無料相談を予約する →</a>
+</nav>
+
+<!-- ══════════════════════════════════════ -->
+<!-- ① HERO / FIRST VIEW                   -->
+<!-- ══════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-tag fade-up visible">For 社長・役員・CMO</div>
+
+  <div class="hero-eyebrow fade-up visible">Marketing Advisory Service</div>
+
+  <h1 class="hero-title fade-up visible">
+    代理店の提案が<em>「正しいかどうか」</em><br>
+    を判断できる人が、<br>社内にいますか。
+  </h1>
+
+  <p class="hero-sub fade-up visible">
+    大手広告代理店・事業会社出身のマーケターが、<br>
+    あなたの壁打ち相手になります。<br>
+    月3万円〜・単月契約・最短2週間でスタート。
+  </p>
+
+  <div class="hero-cta-wrap fade-up visible">
+    <a class="btn-primary" href="#closing">
+      まずは無料で相談してみる →
+    </a>
+    <a class="btn-ghost" href="#pain">課題を確認する</a>
+    <div class="micro-trust">
+      <span>30分・完全無料</span>
+      <span>事前準備不要</span>
+      <span>無理な営業なし</span>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════ -->
+<!-- ② PAIN / 共感・課題提起               -->
+<!-- ══════════════════════════════════════ -->
+<section id="pain">
+  <div class="section-inner">
+    <div class="pain-intro fade-up visible">
+      <div class="section-label">Pain Points</div>
+      <h2 class="section-title">こんな状況、<br>心当たりはありませんか？</h2>
+      <p class="section-lead">マーケティングに関わる経営者・役員が、<br>日常的に感じているリアルな悩みです。</p>
+    </div>
+
+    <div class="checklist fade-up visible">
+      <div class="check-item">
+        <div class="check-box"></div>
+        <p class="check-text">代理店からの提案が良いのか悪いのか、<br>判断できない</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <p class="check-text">マーケティング予算を増やしても<br>成果が比例しない</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <p class="check-text">社内会議で「やってみないとわからない」<br>が口癖になっている</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <p class="check-text">施策が多すぎて、何を優先すべきか<br>決められない</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <p class="check-text">施策が効果に繋がっているのか<br>不明瞭なまま続いている</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <p class="check-text">KPIが不明確で、意思決定が<br>先送りされ続けている</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <p class="check-text">データは集まっているが、<br>何を示しているのか解釈できない</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <p class="check-text">優秀なCMO・マーケターを採用したいが<br>見つからない</p>
+      </div>
+    </div>
+
+    <div class="pain-conclusion fade-up visible">
+      <p>これらの課題の根本にあるのは、施策の良し悪しではなく<br><em>「判断基準が存在しない」</em>ことです。</p>
+    </div>
+
+    <div class="soft-cta fade-up visible">
+      <span class="soft-cta-label">当てはまった方へ</span>
+      <a class="btn-primary" href="#closing">まず30分、プロに話を聞いてもらう →</a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════ -->
+<!-- ③ RISK / 放置リスク                   -->
+<!-- ══════════════════════════════════════ -->
+<section id="risk">
+  <div class="section-inner">
+    <div class="fade-up visible">
+      <div class="section-label">Risk</div>
+      <h2 class="section-title white">判断基準がないと、<br>3つの領域で同時に損をします。</h2>
+      <p class="section-lead white">曖昧なままの投資は、獲得・継続・ブランドで<br>別々に損失が出続けます。</p>
+    </div>
+
+    <div class="risk-grid fade-up visible">
+      <div class="risk-card">
+        <div class="risk-area">ACQUISITION　獲得効率</div>
+        <div class="risk-headline">CPAの改善が<br>頭打ちになる</div>
+        <div class="risk-desc">小手先の改善策に終始し、抜本的な獲得構造の見直しができないまま予算だけが消えていく。</div>
+        <div class="risk-subs">
+          <div class="risk-sub">
+            <div class="risk-sub-title">無駄打ちの増加</div>
+            <div class="risk-sub-desc">優先順位が決まっていないため、効果の薄い施策に予算が流出する</div>
+          </div>
+        </div>
+      </div>
+      <div class="risk-card">
+        <div class="risk-area">RETENTION　LTV・継続</div>
+        <div class="risk-headline">穴の開いたバケツに<br>水を注ぎ続ける</div>
+        <div class="risk-desc">オンボーディングやCRM設計が甘く、せっかく獲得した顧客がすぐに離脱してしまう。</div>
+        <div class="risk-subs">
+          <div class="risk-sub">
+            <div class="risk-sub-title">連携不足による停滞</div>
+            <div class="risk-sub-desc">プロダクト部門との論点整理ができず、根本解決に至らない</div>
+          </div>
+        </div>
+      </div>
+      <div class="risk-card">
+        <div class="risk-area">BRANDING　ブランド</div>
+        <div class="risk-headline">メッセージが<br>誰にも刺さらない</div>
+        <div class="risk-desc">ターゲット・価値・差別化の言語化不足で、訴求軸が散漫になり、広告費が無駄になる。</div>
+        <div class="risk-subs">
+          <div class="risk-sub">
+            <div class="risk-sub-title">意思決定不能</div>
+            <div class="risk-sub-desc">評価軸がないため「好き嫌い」で議論され、施策が決まらない</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="risk-keynote fade-up visible">
+      最大のリスクは<em>「意思決定が遅れること」</em>です。<br>
+      何も決まらない時間だけが、積み上がっていきます。
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════ -->
+<!-- ④ SOLUTION / 解決策                   -->
+<!-- ══════════════════════════════════════ -->
+<section id="solution">
+  <div class="section-inner">
+    <div class="solution-intro fade-up visible">
+      <div class="section-label">Solution</div>
+      <h2 class="section-title">KAKUSHINは「提案」ではなく<br>「判断基準」を提供します。</h2>
+      <p class="section-lead">外部の客観的な知見を活用することで、迷っている時間を削減し、実行への確信度を高めます。既存の代理店・社内チームがいても問題ありません。</p>
+    </div>
+
+    <div class="solution-core fade-up visible">
+      <div class="sol-card">
+        <div class="sol-num">01</div>
+        <div class="sol-title">「本当の問題」を特定する</div>
+        <p class="sol-desc">ふんわりした課題をKPIに接続して分解。「何を決めるべきか」という論点と優先順位を明確にします。施策の多さではなく、ボトルネックの正確な特定が成果を変えます。</p>
+      </div>
+      <div class="sol-card featured">
+        <div class="sol-badge">CORE VALUE</div>
+        <div class="sol-num">02</div>
+        <div class="sol-title">戦略の筋を担保する</div>
+        <p class="sol-desc">大手で実績のあるマーケターがセカンドオピニオンとして検証。代理店提案の盲点を補完し、経営者の直感を「確信」へと昇華させます。</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-num">03</div>
+        <div class="sol-title">低リスクで高速に導入する</div>
+        <p class="sol-desc">ハイレイヤー人材への採用費・高単価のコンサルは不要。単月契約で最短2週間からスタートでき、必要な期間だけ柔軟に活用できます。</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-num">04</div>
+        <div class="sol-title">意思決定を加速する</div>
+        <p class="sol-desc">2回目以降のセッションでは「論点整理シート」を提供。社内説明・代理店指示・稟議書として転用でき、会議の時間を「決める時間」に変えます。</p>
+      </div>
+    </div>
+
+    <div class="solution-cta fade-up visible">
+      <a class="btn-primary" href="#closing">自社の課題に使えるか、無料で確認する →</a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════ -->
+<!-- ⑤ STRENGTHS / 選ばれる理由            -->
+<!-- ══════════════════════════════════════ -->
+<section id="strengths">
+  <div class="section-inner">
+    <div class="fade-up visible">
+      <div class="section-label">Why KAKUSHIN</div>
+      <h2 class="section-title">低リスクで、高い専門性が成立する仕組み。</h2>
+    </div>
+
+    <div class="strengths-grid fade-up visible">
+      <div class="str-item">
+        <div class="str-num">01</div>
+        <div class="str-label">顧問の質</div>
+        <div class="str-value">大手出身<br><span class="unit">実務家のみ</span></div>
+        <p class="str-desc">大手広告代理店・大手事業会社出身のマーケターが顧問を担当。理論家ではなく、現場で成果を出してきたプロ。</p>
+      </div>
+      <div class="str-item">
+        <div class="str-num">02</div>
+        <div class="str-label">月額コスト</div>
+        <div class="str-value">3万円<span class="unit">〜/月</span></div>
+        <p class="str-desc">戦略コンサルの1/10以下。初期費用ゼロ・違約金なし。必要な期間だけ、必要なだけ活用できます。</p>
+      </div>
+      <div class="str-item">
+        <div class="str-num">03</div>
+        <div class="str-label">導入スピード</div>
+        <div class="str-value">最短<br>2<span class="unit">週間</span></div>
+        <p class="str-desc">採用活動の3〜6ヶ月を待たずに、即戦力のマーケターを活用開始。事前準備・資料作成は一切不要。</p>
+      </div>
+      <div class="str-item">
+        <div class="str-num">04</div>
+        <div class="str-label">契約形態</div>
+        <div class="str-value">単月<br><span class="unit">いつでも解約可</span></div>
+        <p class="str-desc">長期縛りなし・違約金なし。合わなければ翌月から終了できます。ミスマッチリスクを最小化した設計です。</p>
+      </div>
+      <div class="str-item">
+        <div class="str-num">05</div>
+        <div class="str-label">指名・変更</div>
+        <div class="str-value">無制限<br><span class="unit">変更OK</span></div>
+        <p class="str-desc">面談後に顧問を指名でき、ミスマッチの場合は無制限で変更可能。「この人なら任せられる」と納得してから契約。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════ -->
+<!-- ⑥ COMPARISON / 競合比較               -->
+<!-- ══════════════════════════════════════ -->
+<section id="comparison">
+  <div class="section-inner">
+    <div class="comp-intro fade-up visible">
+      <div class="section-label">Comparison</div>
+      <h2 class="section-title">「コンサル」でも「採用」でも<br>「代理店」でもない、第4の選択肢。</h2>
+      <p class="section-lead">他の選択肢と比べてみました。</p>
+    </div>
+
+    <div class="comp-table-wrap fade-up visible">
+      <table class="comp">
+        <thead>
+          <tr>
+            <th style="text-align:left">比較軸</th>
+            <th class="highlight">KAKUSHIN</th>
+            <th>戦略コンサル</th>
+            <th>マーケター採用</th>
+            <th>広告代理店</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>上流支援（課題定義〜戦略）</td>
+            <td class="highlight good">上流特化 ◎</td>
+            <td>非常に強い ◎</td>
+            <td class="bad">人による △</td>
+            <td class="bad">実行寄り △</td>
+          </tr>
+          <tr>
+            <td>全体俯瞰（広告以外も含む）</td>
+            <td class="highlight good">全領域カバー ◎</td>
+            <td>網羅的 ◎</td>
+            <td class="bad">個人の経験に依存 △</td>
+            <td class="bad">担当領域に閉じる ×</td>
+          </tr>
+          <tr>
+            <td>導入スピード</td>
+            <td class="highlight good">最短2週間 ◎</td>
+            <td class="bad">数ヶ月（重い）△</td>
+            <td class="bad">3〜6ヶ月（採用難）△</td>
+            <td>即時〜1ヶ月 ○</td>
+          </tr>
+          <tr>
+            <td>柔軟性（契約・変更）</td>
+            <td class="highlight good">単月・変更可 ◎</td>
+            <td class="bad">長期契約が主 ×</td>
+            <td class="bad">ミスマッチリスク ×</td>
+            <td class="bad">担当変更困難 △</td>
+          </tr>
+          <tr>
+            <td>月額コスト目安</td>
+            <td class="highlight good">3〜20万円</td>
+            <td class="bad">数百万円〜</td>
+            <td class="bad">80〜120万円</td>
+            <td class="bad">運用費の20%等</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comp-cta fade-up visible">
+      <a class="btn-primary" href="#closing">KAKUSHINが自社に合うか、無料で確認する →</a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════ -->
+<!-- ⑦ ADVISORS / 顧問紹介（動的取得）     -->
+<!-- ══════════════════════════════════════ -->
+<section id="advisors">
+  <div class="section-inner">
+    <div class="advisors-header fade-up visible">
+      <div class="section-label">Our Advisors</div>
+      <h2 class="section-title white">話せるのは、「現場で成果を<br>出してきた」プロだけです。</h2>
+      <p class="section-lead white">50名以上の登録顧問から、貴社の業界・規模・課題に合う候補を5名前後推薦します。</p>
+    </div>
+
+    <div class="advisors-carousel-wrap fade-up visible">
+      <div class="advisors-carousel">
+        <div class="advisors-track" id="advisors-track" style="--adv-total: 4; transform: translateX(0px);"><div class="advisor-card">
+    <div class="adv-row adv-row--avatar">
+      <div class="advisor-avatar"><span>元</span></div>
+    </div>
+    <div class="adv-row adv-row--career">
+      <div class="advisor-career">マーケター歴 20年以上</div>
+    </div>
+    <div class="adv-row adv-row--title">
+      <div class="advisor-title">元）サイボウズ 部長</div>
+    </div>
+    <div class="adv-row adv-row--area">
+      <div class="advisor-area">対応領域：BtoB SaaS / 年商10億円〜100億円規模</div>
+    </div>
+    <div class="adv-row adv-row--subject">
+      <div class="advisor-subject"><span class="tag">BtoB SaaS</span><span class="tag">CRM</span><span class="tag">MA設計</span><span class="tag">リード獲得構造改善</span><span class="tag">組織構築</span></div>
+    </div>
+    <div class="adv-row adv-row--accordion">
+    <div class="adv-accordion">
+      <button class="adv-acc-trigger">詳しい経歴を確認する <span class="adv-acc-icon">+</span></button>
+      <div class="adv-acc-body">
+        <div class="adv-acc-body-inner">
+          <div class="adv-acc-section">
+            <div class="adv-acc-section-label">Achievements</div>
+            <div class="adv-acc-text"><div class="result-item">認知度230%向上・リード数倍増を実現</div><div class="result-item">MA/CRM導入・シナリオ設計・データ基盤整備を主導</div></div>
+          </div>
+          <div class="adv-acc-section">
+            <div class="adv-acc-section-label">Introduction</div>
+            <div class="adv-acc-text">toB/toC双方のマーケティング戦略を牽引してきた戦略型マーケター。上流の戦略設計から施策実行まで一気通貫で対応。</div>
+          </div>
+          <div class="adv-acc-section">
+            <div class="adv-acc-section-label">Skill</div>
+            <div class="skill-tags"><span class="skill-tag">統合マーケティング</span><span class="skill-tag">データドリブン経営</span><span class="skill-tag">BtoBマーケティング</span><span class="skill-tag">戦略設計</span><span class="skill-tag">CRM</span><span class="skill-tag">MA</span><span class="skill-tag">SEO</span><span class="skill-tag">コンテンツ</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div><div class="advisor-card">
+    <div class="adv-row adv-row--avatar">
+      <div class="advisor-avatar"><span>元</span></div>
+    </div>
+    <div class="adv-row adv-row--career">
+      <div class="advisor-career">マーケター歴 20年以上</div>
+    </div>
+    <div class="adv-row adv-row--title">
+      <div class="advisor-title">元）GMOペパボ マネジャー</div>
+    </div>
+    <div class="adv-row adv-row--area">
+      <div class="advisor-area">対応領域：EC / D2C / 年商5億円〜50億円規模</div>
+    </div>
+    <div class="adv-row adv-row--subject">
+      <div class="advisor-subject"><span class="tag">EC</span><span class="tag">D2C</span><span class="tag">獲得効率改善</span><span class="tag">LTV向上</span><span class="tag">データ基盤構築</span></div>
+    </div>
+    <div class="adv-row adv-row--accordion">
+    <div class="adv-accordion">
+      <button class="adv-acc-trigger">詳しい経歴を確認する <span class="adv-acc-icon">+</span></button>
+      <div class="adv-acc-body">
+        <div class="adv-acc-body-inner">
+          <div class="adv-acc-section">
+            <div class="adv-acc-section-label">Achievements</div>
+            <div class="adv-acc-text"><div class="result-item">EC事業にてCEO直下でマーケ部門を統括し、会員数4倍・売上6倍を達成</div><div class="result-item">1,500億円市場の新規事業を戦略立案から支援し3年でシェア10%超を確立</div></div>
+          </div>
+          <div class="adv-acc-section">
+            <div class="adv-acc-section-label">Introduction</div>
+            <div class="adv-acc-text">EC・通信・メーカー領域で事業戦略とデジタルマーケティングを横断してきた人材。市場分析からKPI設計、収益モデル構築まで上流から伴走可能。</div>
+          </div>
+          <div class="adv-acc-section">
+            <div class="adv-acc-section-label">Skill</div>
+            <div class="skill-tags"><span class="skill-tag">事業戦略</span><span class="skill-tag">広告戦略</span><span class="skill-tag">Web広告</span><span class="skill-tag">データ分析</span><span class="skill-tag">LTV設計</span><span class="skill-tag">新規事業立ち上げ</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div><div class="advisor-card">
+    <div class="adv-row adv-row--avatar">
+      <div class="advisor-avatar"><span>元</span></div>
+    </div>
+    <div class="adv-row adv-row--career">
+      <div class="advisor-career">マーケター歴 3年以上</div>
+    </div>
+    <div class="adv-row adv-row--title">
+      <div class="advisor-title">元）Septeni Japan</div>
+    </div>
+    <div class="adv-row adv-row--area">
+      <div class="advisor-area">対応領域：BtoC / BtoB / 広告予算月300万円以上</div>
+    </div>
+    <div class="adv-row adv-row--subject">
+      <div class="advisor-subject"><span class="tag">広告運用改善</span><span class="tag">獲得単価削減</span><span class="tag">SNS広告</span><span class="tag">配信設計</span></div>
+    </div>
+    <div class="adv-row adv-row--accordion">
+    <div class="adv-accordion">
+      <button class="adv-acc-trigger">詳しい経歴を確認する <span class="adv-acc-icon">+</span></button>
+      <div class="adv-acc-body">
+        <div class="adv-acc-body-inner">
+          <div class="adv-acc-section">
+            <div class="adv-acc-section-label">Achievements</div>
+            <div class="adv-acc-text"><div class="result-item">獲得単価を前任代理店比50%まで改善し、広告予算を6倍増額</div><div class="result-item">コンペ提案にて配信設計を抜本改善し受注、配信開始2ヶ月で獲得単価を前任比80%まで改善</div></div>
+          </div>
+          <div class="adv-acc-section">
+            <div class="adv-acc-section-label">Introduction</div>
+            <div class="adv-acc-text">既存・新規顧客に対し、データ分析を起点に仮説立案から提案・実行まで主導してきた若手アカウントプランナー。</div>
+          </div>
+          <div class="adv-acc-section">
+            <div class="adv-acc-section-label">Skill</div>
+            <div class="skill-tags"><span class="skill-tag">Google</span><span class="skill-tag">Yahoo広告</span><span class="skill-tag">SNS広告</span><span class="skill-tag">バナー</span><span class="skill-tag">LP制作</span><span class="skill-tag">広告運用</span><span class="skill-tag">MA</span><span class="skill-tag">CRM</span><span class="skill-tag">ディレクション</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div><div class="advisor-card">
+    <div class="adv-row adv-row--avatar">
+      <div class="advisor-avatar"><span>元</span></div>
+    </div>
+    <div class="adv-row adv-row--career">
+      <div class="advisor-career">マーケター歴 12年以上</div>
+    </div>
+    <div class="adv-row adv-row--title">
+      <div class="advisor-title">元）電通 シニアプランナー</div>
+    </div>
+    <div class="adv-row adv-row--area">
+      <div class="advisor-area">対応領域：BtoB / BtoC / 広告予算月500万円以上</div>
+    </div>
+    <div class="adv-row adv-row--subject">
+      <div class="advisor-subject"><span class="tag">ブランド戦略</span><span class="tag">統合コミュニケーション</span><span class="tag">メディアプランニング</span><span class="tag">コンテンツ設計</span></div>
+    </div>
+    <div class="adv-row adv-row--accordion">
+    <div class="adv-accordion">
+      <button class="adv-acc-trigger">詳しい経歴を確認する <span class="adv-acc-icon">+</span></button>
+      <div class="adv-acc-body">
+        <div class="adv-acc-body-inner">
+          <div class="adv-acc-section">
+            <div class="adv-acc-section-label">Achievements</div>
+            <div class="adv-acc-text"><div class="result-item">大手消費財クライアントのブランドリニューアルを主導し、認知率40pt向上</div><div class="result-item">統合キャンペーン設計でROAS 3.2倍を達成</div></div>
+          </div>
+          <div class="adv-acc-section">
+            <div class="adv-acc-section-label">Introduction</div>
+            <div class="adv-acc-text">大手広告代理店でナショナルクライアントを10年以上担当。ブランド戦略から統合コミュニケーション設計まで上流から一気通貫で対応できる戦略家。</div>
+          </div>
+          <div class="adv-acc-section">
+            <div class="adv-acc-section-label">Skill</div>
+            <div class="skill-tags"><span class="skill-tag">ブランド戦略</span><span class="skill-tag">統合コミュニケーション</span><span class="skill-tag">マスメディア</span><span class="skill-tag">デジタル統合</span><span class="skill-tag">コンテンツマーケ</span><span class="skill-tag">メディア最適化</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div></div>
+      </div>
+      <div class="carousel-nav" id="carousel-nav" style="display: flex;">
+        <button class="carousel-btn" id="carousel-prev" aria-label="前へ" disabled="">←</button>
+        <div class="carousel-dots" id="carousel-dots"><button class="carousel-dot active" aria-label="1番目へ"></button><button class="carousel-dot" aria-label="2番目へ"></button></div>
+        <button class="carousel-btn" id="carousel-next" aria-label="次へ">→</button>
+      </div>
+    </div>
+
+    <p class="advisors-note">
+      ※プロフィールと実績を事前に開示。面談後に指名・変更は無制限で可能です。<br>
+      ※スプレッドシートの更新はリロード時にこのページへ反映されます。
+    </p>
+
+    <div class="advisors-cta fade-up visible">
+      <a class="btn-primary" href="#closing">候補の顧問を紹介してもらう（無料）→</a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════ -->
+<!-- ⑧ CASES / 活用事例                    -->
+<!-- ══════════════════════════════════════ -->
+<section id="cases">
+  <div class="section-inner">
+    <div class="fade-up visible">
+      <div class="section-label">Use Cases</div>
+      <h2 class="section-title">「問いの整理」から、<br>最短で解決へ。</h2>
+      <p class="section-lead">異なる課題も、正しい論点設定で成果が変わります。</p>
+    </div>
+
+    <div class="cases-grid fade-up visible">
+      <div class="case-card">
+        <div class="case-industry">BtoB SaaS</div>
+        <div class="case-company">HR Tech企業（従業員150名規模）</div>
+        <div class="case-label">課題</div>
+        <p class="case-issue">リード獲得単価が高騰し、商談数が頭打ちに。広告予算を増やしても効果が出ない。</p>
+        <div class="case-arrow">↓ 論点整理</div>
+        <div class="case-result">CPA <span>120%</span> 改善<br>商談数 <span>1.5倍</span> 増</div>
+      </div>
+      <div class="case-card">
+        <div class="case-industry">D2C / EC</div>
+        <div class="case-company">アパレルD2C（年商10億円規模）</div>
+        <div class="case-label">課題</div>
+        <p class="case-issue">新規獲得はできているが、2回目購入（F2転換）が伸びずLTVが低い。</p>
+        <div class="case-arrow">↓ 初回体験設計の見直し</div>
+        <div class="case-result">F2転換率<br><span>15%→22%</span> へ向上</div>
+      </div>
+      <div class="case-card">
+        <div class="case-industry">人材サービス</div>
+        <div class="case-company">人材紹介事業（立ち上げフェーズ）</div>
+        <div class="case-label">課題</div>
+        <p class="case-issue">競合大手との差別化ができず、求職者の登録が集まらない（ブランド未確立）。</p>
+        <div class="case-arrow">↓ 訴求軸の再定義</div>
+        <div class="case-result">登録CPA <span>半減</span><br>登録数 <span>倍増</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════ -->
+<!-- ⑨ FLOW / 利用の流れ                   -->
+<!-- ══════════════════════════════════════ -->
+<section id="flow">
+  <div class="section-inner">
+    <div class="fade-up visible">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">申し込みから初回セッションまで、<br>最短2週間。</h2>
+    </div>
+
+    <!-- 番号ボックス行（横線はCSSで描画） -->
+    <div class="flow-connector-row fade-up visible">
+      <div class="flow-num-cell"><div class="step-num">01</div></div>
+      <div class="flow-num-cell"><div class="step-num">02</div></div>
+      <div class="flow-num-cell"><div class="step-num">03</div></div>
+      <div class="flow-num-cell"><div class="step-num">04</div></div>
+      <div class="flow-num-cell"><div class="step-num">05</div></div>
+      <div class="flow-num-cell"><div class="step-num">06</div></div>
+    </div>
+
+    <!-- テキスト行（タイトル＋説明文） -->
+    <div class="flow-steps fade-up visible">
+      <div class="flow-step">
+        <div class="step-title">無料相談</div>
+        <p class="step-desc">30分・オンライン<br>費用感・スケジュール<br>をその場で確認</p>
+      </div>
+      <div class="flow-step">
+        <div class="step-title">NDA締結</div>
+        <p class="step-desc">クラウドサイン使用<br>最短即日対応</p>
+      </div>
+      <div class="flow-step">
+        <div class="step-title">顧問候補推薦</div>
+        <p class="step-desc">即日〜3日で<br>5名前後を紹介<br>実績・経歴も開示</p>
+      </div>
+      <div class="flow-step">
+        <div class="step-title">事前面談</div>
+        <p class="step-desc">候補者と直接話して<br>相性を確認してから<br>指名</p>
+      </div>
+      <div class="flow-step">
+        <div class="step-title">契約締結</div>
+        <p class="step-desc">単月契約<br>いつでも解約OK<br>違約金なし</p>
+      </div>
+      <div class="flow-step">
+        <div class="step-title">初回セッション</div>
+        <p class="step-desc">資料不要<br>口頭ヒアリングから<br>スタート</p>
+      </div>
+    </div>
+
+    <div class="flow-note fade-up visible">
+      <span>事前準備・資料作成は一切不要</span>
+      <span>単月契約でいつでも解約可能</span>
+      <span>顧問変更は無制限でOK</span>
+    </div>
+
+    <div class="flow-cta fade-up visible">
+      <a class="btn-primary" href="#closing">ステップ1から始める → 無料相談を予約する</a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════ -->
+<!-- ⑩ FAQ                                 -->
+<!-- ══════════════════════════════════════ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="fade-up visible">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">始める前に、気になることを<br>解消しておきましょう。</h2>
+    </div>
+
+    <div class="faq-grid fade-up visible" id="faq-container">
+      <!-- FAQはJSで生成 -->
+    <div class="faq-item">
+    <div class="faq-q">料金はどのくらいかかりますか？</div>
+    <div class="faq-a"><div class="faq-a-inner">Standardプラン（月1回・1時間）は月3万円〜、Premiumプラン（月4回）は最大20万円以内です。初期費用・違約金は一切かかりません。戦略コンサルと比較すると1/10以下のコスト感で、同等の知見を活用いただけます。</div></div>
+  </div><div class="faq-item">
+    <div class="faq-q">本当に効果が出るか不安です。</div>
+    <div class="faq-a"><div class="faq-a-inner">契約前に顧問との面談を実施しており、相性を確認してから契約できます。ミスマッチの場合は無制限で顧問を変更可能です。また「提案」ではなく「判断基準の整理」を提供するため、初回セッションから意思決定に活用いただけます。</div></div>
+  </div><div class="faq-item">
+    <div class="faq-q">導入や準備が面倒ではないですか？</div>
+    <div class="faq-a"><div class="faq-a-inner">初回セッションは口頭ヒアリングからスタートします。膨大な資料準備は一切不要です。NDAはクラウドサインで即日対応。無料相談から最短2週間で初回セッションを開始できます。</div></div>
+  </div><div class="faq-item">
+    <div class="faq-q">自社の業界・課題に対応できますか？</div>
+    <div class="faq-a"><div class="faq-a-inner">50名以上の登録顧問から、業界・規模・課題に合う候補を5名前後推薦します。BtoB SaaS、EC/D2C、人材サービスなど幅広い業種に対応しており、広告運用からCRM設計・ブランド構築まで対応領域も多岐にわたります。</div></div>
+  </div><div class="faq-item">
+    <div class="faq-q">営業されるのが不安です。</div>
+    <div class="faq-a"><div class="faq-a-inner">無料相談は「課題に対応できるか確認する場」です。その後、顧問候補との面談を経て、納得してから契約します。契約を急かしたり、無理に押し進めることは一切しておりません。</div></div>
+  </div><div class="faq-item">
+    <div class="faq-q">解約や停止はいつでもできますか？</div>
+    <div class="faq-a"><div class="faq-a-inner">単月契約のため、いつでも解約可能です。違約金は一切なく、翌月から更新しなければ自動的に終了します。長期縛りのリスクはありません。</div></div>
+  </div><div class="faq-item">
+    <div class="faq-q">既存の代理店がいても使えますか？</div>
+    <div class="faq-a"><div class="faq-a-inner">むしろ推奨しております。KAKUSHINは「代理店の代わり」ではなく、代理店提案のレビューや意思決定の判断軸を提供するサービスです。既存の代理店・社内チームとの共存を前提に設計されています。</div></div>
+  </div><div class="faq-item">
+    <div class="faq-q">実行支援（広告運用など）も依頼できますか？</div>
+    <div class="faq-a"><div class="faq-a-inner">基本は戦略・上流の壁打ちに特化していますが、必要に応じて実行支援チームの組成も可能です。顧問とのセッション（①）に加え、競合分析・データ分析等の追加ミッション（②）、広告運用等のチーム構築（③）まで対応できます。</div></div>
+  </div></div>
+
+    <div class="faq-cta fade-up visible">
+      <p style="font-size:13px;color:var(--ink-muted);margin-bottom:20px">他にご不明な点は、無料相談でご確認ください。</p>
+      <a class="btn-primary" href="#closing">→ 気になることは、まず話してみてください（無料・30分）</a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════ -->
+<!-- ⑪ CLOSING / 最終CTA                   -->
+<!-- ══════════════════════════════════════ -->
+<section id="closing">
+  <div class="closing-inner fade-up visible">
+    <div class="closing-label">Free Consultation</div>
+    <h2 class="closing-title">まず30分、<br>話してみてください。<br>それだけでいいです。</h2>
+    <p class="closing-sub">
+      費用は発生しません。準備も不要です。<br>
+      「迷っている時間」が、最大の機会損失です。
+    </p>
+    <a class="btn-primary" href="https://forms.gle/" style="font-size:15px;padding:22px 56px">
+      無料相談を予約する（30分・完全無料）→
+    </a>
+    <div class="closing-trust">
+      <span>費用は一切かかりません</span>
+      <span>事前準備・資料作成は不要</span>
+      <span>無理な営業は一切しません</span>
+      <span>合わなければ、ただそれだけです</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">KAKUSHIN</div>
+  <p class="footer-copy">© 2025 KAKUSHIN. All rights reserved.</p>
+</footer>
+
+<!-- ══════════════════════════════════════ -->
+<!-- JAVASCRIPT                            -->
+<!-- ══════════════════════════════════════ -->
+<script>
+/* ─────────────────────────────────────
+   FAQ DATA
+───────────────────────────────────── */
+const faqs = [
+  {
+    q: '料金はどのくらいかかりますか？',
+    a: 'Standardプラン（月1回・1時間）は月3万円〜、Premiumプラン（月4回）は最大20万円以内です。初期費用・違約金は一切かかりません。戦略コンサルと比較すると1/10以下のコスト感で、同等の知見を活用いただけます。'
+  },
+  {
+    q: '本当に効果が出るか不安です。',
+    a: '契約前に顧問との面談を実施しており、相性を確認してから契約できます。ミスマッチの場合は無制限で顧問を変更可能です。また「提案」ではなく「判断基準の整理」を提供するため、初回セッションから意思決定に活用いただけます。'
+  },
+  {
+    q: '導入や準備が面倒ではないですか？',
+    a: '初回セッションは口頭ヒアリングからスタートします。膨大な資料準備は一切不要です。NDAはクラウドサインで即日対応。無料相談から最短2週間で初回セッションを開始できます。'
+  },
+  {
+    q: '自社の業界・課題に対応できますか？',
+    a: '50名以上の登録顧問から、業界・規模・課題に合う候補を5名前後推薦します。BtoB SaaS、EC/D2C、人材サービスなど幅広い業種に対応しており、広告運用からCRM設計・ブランド構築まで対応領域も多岐にわたります。'
+  },
+  {
+    q: '営業されるのが不安です。',
+    a: '無料相談は「課題に対応できるか確認する場」です。その後、顧問候補との面談を経て、納得してから契約します。契約を急かしたり、無理に押し進めることは一切しておりません。'
+  },
+  {
+    q: '解約や停止はいつでもできますか？',
+    a: '単月契約のため、いつでも解約可能です。違約金は一切なく、翌月から更新しなければ自動的に終了します。長期縛りのリスクはありません。'
+  },
+  {
+    q: '既存の代理店がいても使えますか？',
+    a: 'むしろ推奨しております。KAKUSHINは「代理店の代わり」ではなく、代理店提案のレビューや意思決定の判断軸を提供するサービスです。既存の代理店・社内チームとの共存を前提に設計されています。'
+  },
+  {
+    q: '実行支援（広告運用など）も依頼できますか？',
+    a: '基本は戦略・上流の壁打ちに特化していますが、必要に応じて実行支援チームの組成も可能です。顧問とのセッション（①）に加え、競合分析・データ分析等の追加ミッション（②）、広告運用等のチーム構築（③）まで対応できます。'
+  }
+];
+
+/* FAQ描画 */
+const faqContainer = document.getElementById('faq-container');
+faqs.forEach((item, i) => {
+  const el = document.createElement('div');
+  el.className = 'faq-item';
+  el.innerHTML = `
+    <div class="faq-q">${item.q}</div>
+    <div class="faq-a"><div class="faq-a-inner">${item.a}</div></div>
+  `;
+  el.querySelector('.faq-q').addEventListener('click', () => {
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => o.classList.remove('open'));
+    if (!isOpen) el.classList.add('open');
+  });
+  faqContainer.appendChild(el);
+});
+
+/* ─────────────────────────────────────
+   ADVISORS — Google Sheets CSV 取得
+   CSVフィールド: Career / title / Available area /
+                  Favorite subject / Achievements /
+                  Introduction / skill / photo
+   ※スプレッドシート更新 → ページリロードで反映
+───────────────────────────────────── */
+const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR21tN6lYG7n3qJ6hNVqBg0B5H0h1NEzu5RO_V31zXkf6jeZ7enr3KPBQOD751cE4IEERaqsJu0vQ61/pub?gid=22407687&single=true&output=csv';
+
+function parseCSV(text) {
+  const lines = text.trim().split('\n');
+  if (lines.length < 2) return [];
+  const headers = parseCSVRow(lines[0]);
+  return lines.slice(1).map(line => {
+    const vals = parseCSVRow(line);
+    const obj = {};
+    headers.forEach((h, i) => { obj[h.trim()] = (vals[i] || '').trim(); });
+    return obj;
+  }).filter(r => Object.values(r).some(v => v));
+}
+
+function parseCSVRow(line) {
+  const result = []; let cur = ''; let inQ = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (c === '"') { inQ = !inQ; }
+    else if (c === ',' && !inQ) { result.push(cur); cur = ''; }
+    else { cur += c; }
+  }
+  result.push(cur);
+  return result;
+}
+
+/* CSVフィールドを複数候補で取得するヘルパー */
+function gf(row, ...keys) {
+  for (const k of keys) { if (row[k]) return row[k]; }
+  return '';
+}
+
+/* カード1枚のHTMLを生成 */
+function buildAdvisorCard(a) {
+  const photo        = gf(a, 'photo', '写真URL', 'image', 'photo_url');
+  const career       = gf(a, 'Career', 'career', 'マーケター歴', '経歴', '経験年数');
+  const title        = gf(a, 'title', 'Title', '名前', '肩書き', '前職');
+  const availableArea= gf(a, 'Available area', 'available_area', '対応可能領域', '対応業種');
+  const favSubject   = gf(a, 'Favorite subject', 'favorite_subject', '得意領域', '得意分野', '専門領域');
+  const achievements = gf(a, 'Achievements', 'achievements', '実績');
+  const introduction = gf(a, 'Introduction', 'introduction', '自己紹介', '紹介文');
+  const skill        = gf(a, 'skill', 'Skill', 'skills', 'スキル');
+
+  /* 写真 / イニシャル */
+  const avatarInner = photo
+    ? `<img src="${photo}" alt="${title}" loading="lazy" onerror="this.style.display='none'">`
+    : `<span>${(title||'顧').slice(0,1)}</span>`;
+
+  /* 得意分野タグ */
+  const subjectTags = favSubject
+    ? favSubject.split(/[,/、・\n]/).map(t=>t.trim()).filter(Boolean)
+        .map(t => `<span class="tag">${t}</span>`).join('')
+    : '<span style="color:rgba(255,255,255,0.25);font-size:12px">—</span>';
+
+  /* 実績リスト */
+  const achieveItems = achievements
+    ? achievements.split(/\n|■/).map(r=>r.replace(/^[-・■\s]/,'').trim()).filter(Boolean)
+        .map(r=>`<div class="result-item">${r}</div>`).join('')
+    : '<span style="color:rgba(255,255,255,0.25)">—</span>';
+
+  /* スキルタグ */
+  const skillTags = skill
+    ? skill.split(/[,/、・\n]/).map(t=>t.trim()).filter(Boolean)
+        .map(t=>`<span class="skill-tag">${t}</span>`).join('')
+    : '<span style="color:rgba(255,255,255,0.25);font-size:12px">—</span>';
+
+  /* アコーディオン — 1つのトグルで3項目まとめて表示 */
+  const accordion = `
+    <div class="adv-accordion">
+      <button class="adv-acc-trigger">詳しい経歴を確認する <span class="adv-acc-icon">+</span></button>
+      <div class="adv-acc-body">
+        <div class="adv-acc-body-inner">
+          <div class="adv-acc-section">
+            <div class="adv-acc-section-label">Achievements</div>
+            <div class="adv-acc-text">${achieveItems}</div>
+          </div>
+          <div class="adv-acc-section">
+            <div class="adv-acc-section-label">Introduction</div>
+            <div class="adv-acc-text">${introduction || '—'}</div>
+          </div>
+          <div class="adv-acc-section">
+            <div class="adv-acc-section-label">Skill</div>
+            <div class="skill-tags">${skillTags}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const card = document.createElement('div');
+  card.className = 'advisor-card';
+  card.innerHTML = `
+    <div class="adv-row adv-row--avatar">
+      <div class="advisor-avatar">${avatarInner}</div>
+    </div>
+    <div class="adv-row adv-row--career">
+      <div class="advisor-career">${career}</div>
+    </div>
+    <div class="adv-row adv-row--title">
+      <div class="advisor-title">${title || '顧問'}</div>
+    </div>
+    <div class="adv-row adv-row--area">
+      <div class="advisor-area">対応領域：${availableArea || '—'}</div>
+    </div>
+    <div class="adv-row adv-row--subject">
+      <div class="advisor-subject">${subjectTags}</div>
+    </div>
+    <div class="adv-row adv-row--accordion">${accordion}</div>
+  `;
+
+  /* アコーディオン動作 — adv-accordionにopenクラスをトグル */
+  const accEl = card.querySelector('.adv-accordion');
+  card.querySelector('.adv-acc-trigger').addEventListener('click', () => {
+    accEl.classList.toggle('open');
+  });
+
+  return card;
+}
+
+/* ─────────────────────────────────────
+   同行高さ揃え（subgrid非対応ブラウザ用 fallback）
+   subgrid対応ブラウザでは CSS が自動処理するため不要
+───────────────────────────────────── */
+function equalizeRowHeights() {
+  /* subgrid対応ブラウザはスキップ */
+  const testEl = document.createElement('div');
+  testEl.style.cssText = 'grid-template-rows:subgrid;display:grid;';
+  document.body.appendChild(testEl);
+  const supported = getComputedStyle(testEl).gridTemplateRows !== 'none'
+                    && testEl.style.gridTemplateRows === 'subgrid';
+  document.body.removeChild(testEl);
+  if (supported) return;
+
+  /* fallback: JS で各グループ内の同一行高さを揃える */
+  const track = document.getElementById('advisors-track');
+  if (!track) return;
+  const cards = Array.from(track.querySelectorAll('.advisor-card'));
+  if (!cards.length) return;
+
+  const vc = getVisibleCount();
+  const rowClasses = ['adv-row--avatar','adv-row--career','adv-row--title','adv-row--area','adv-row--subject'];
+
+  /* リセット */
+  cards.forEach(c => rowClasses.forEach(cls => {
+    const el = c.querySelector('.' + cls);
+    if (el) el.style.minHeight = '';
+  }));
+
+  /* グループごとに最大高さを取得してminHeightに設定 */
+  const groupCount = Math.ceil(cards.length / vc);
+  for (let g = 0; g < groupCount; g++) {
+    const group = cards.slice(g * vc, (g + 1) * vc);
+    rowClasses.forEach(cls => {
+      const rows = group.map(c => c.querySelector('.' + cls)).filter(Boolean);
+      if (!rows.length) return;
+      const maxH = Math.max(...rows.map(r => r.offsetHeight));
+      if (maxH > 0) rows.forEach(r => { r.style.minHeight = maxH + 'px'; });
+    });
+  }
+}
+
+/* ─────────────────────────────────────
+   カルーセル制御
+   track は display:grid なので transform で
+   「列1枚分のpx」ずつずらす
+───────────────────────────────────── */
+let carouselIndex = 0;
+let carouselTotal = 0;
+
+function getVisibleCount() {
+  return window.innerWidth <= 768 ? 1 : 3;
+}
+
+function getCardWidth() {
+  /* grid列幅 = カード要素の offsetWidth + gap(2px) */
+  const card = document.querySelector('#advisors-track .advisor-card');
+  if (!card) return 0;
+  return card.offsetWidth + 2;
+}
+
+function updateCarousel(animate) {
+  const track = document.getElementById('advisors-track');
+  const nav   = document.getElementById('carousel-nav');
+  const dots  = document.getElementById('carousel-dots');
+  const prev  = document.getElementById('carousel-prev');
+  const next  = document.getElementById('carousel-next');
+  if (!track) return;
+
+  const vc       = getVisibleCount();
+  const maxIndex = Math.max(0, carouselTotal - vc);
+  carouselIndex  = Math.max(0, Math.min(carouselIndex, maxIndex));
+
+  const offset = carouselIndex * getCardWidth();
+
+  if (animate === false) {
+    track.style.transition = 'none';
+    track.style.transform  = `translateX(-${offset}px)`;
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      track.style.transition = '';
+    }));
+  } else {
+    track.style.transform = `translateX(-${offset}px)`;
+  }
+
+  /* ナビ表示 */
+  if (maxIndex > 0) {
+    nav.style.display = 'flex';
+    dots.innerHTML = '';
+    for (let i = 0; i <= maxIndex; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === carouselIndex ? ' active' : '');
+      dot.setAttribute('aria-label', `${i+1}番目へ`);
+      dot.addEventListener('click', () => { carouselIndex = i; updateCarousel(); });
+      dots.appendChild(dot);
+    }
+  } else {
+    nav.style.display = 'none';
+  }
+
+  if (prev) prev.disabled = carouselIndex === 0;
+  if (next) next.disabled = carouselIndex >= maxIndex;
+}
+
+function initCarouselControls() {
+  document.getElementById('carousel-prev')?.addEventListener('click', () => {
+    carouselIndex = Math.max(0, carouselIndex - 1);
+    updateCarousel();
+  });
+  document.getElementById('carousel-next')?.addEventListener('click', () => {
+    const vc = getVisibleCount();
+    carouselIndex = Math.min(Math.max(0, carouselTotal - vc), carouselIndex + 1);
+    updateCarousel();
+  });
+
+  /* Touch swipe */
+  const carousel = document.querySelector('.advisors-carousel');
+  let startX = 0;
+  carousel?.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+  carousel?.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    const vc = getVisibleCount();
+    if (Math.abs(dx) > 48) {
+      if (dx < 0) carouselIndex = Math.min(Math.max(0, carouselTotal - vc), carouselIndex + 1);
+      else        carouselIndex = Math.max(0, carouselIndex - 1);
+      updateCarousel();
+    }
+  }, {passive:true});
+
+  /* Resize */
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      /* gridのcolumn-template変更 → CSSが自動対応。カード幅再取得してcarousel更新 */
+      equalizeRowHeights();
+      updateCarousel(false);
+    }, 100);
+  });
+}
+
+function renderAdvisors(advisors) {
+  const track = document.getElementById('advisors-track');
+  if (!track) return;
+  track.innerHTML = '';
+
+  if (!advisors || advisors.length === 0) {
+    track.innerHTML = '<div style="padding:80px;text-align:center;color:rgba(255,255,255,0.3);font-size:14px;grid-column:1/-1">現在、顧問情報を準備中です。無料相談にてご紹介します。</div>';
+    return;
+  }
+
+  /* CSS変数 --adv-total をtrackに設定してgrid列数を決定 */
+  track.style.setProperty('--adv-total', advisors.length);
+
+  advisors.forEach(a => track.appendChild(buildAdvisorCard(a)));
+
+  carouselTotal = advisors.length;
+  carouselIndex = 0;
+
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    equalizeRowHeights();
+    updateCarousel(false);
+    observeFadeUps();
+    /* フォント確定後に再計測 */
+    setTimeout(() => { equalizeRowHeights(); updateCarousel(false); }, 600);
+  }));
+}
+
+async function loadAdvisors() {
+  try {
+    const res = await fetch(CSV_URL, { cache: 'no-cache' });
+    if (!res.ok) throw new Error('fetch failed');
+    const text = await res.text();
+    renderAdvisors(parseCSV(text));
+  } catch (e) {
+    /* フォールバック：PPTXから抽出した静的データ */
+    const fallback = [
+      { Career:'マーケター歴 20年以上', title:'元）サイボウズ 部長',
+        'Available area':'BtoB SaaS / 年商10億円〜100億円規模',
+        'Favorite subject':'BtoB SaaS,CRM/MA設計,リード獲得構造改善,組織構築',
+        Achievements:'認知度230%向上・リード数倍増を実現\nMA/CRM導入・シナリオ設計・データ基盤整備を主導',
+        Introduction:'toB/toC双方のマーケティング戦略を牽引してきた戦略型マーケター。上流の戦略設計から施策実行まで一気通貫で対応。',
+        skill:'統合マーケティング,データドリブン経営,BtoBマーケティング,戦略設計,CRM/MA,SEO/コンテンツ' },
+      { Career:'マーケター歴 20年以上', title:'元）GMOペパボ マネジャー',
+        'Available area':'EC / D2C / 年商5億円〜50億円規模',
+        'Favorite subject':'EC,D2C,獲得効率改善,LTV向上,データ基盤構築',
+        Achievements:'EC事業にてCEO直下でマーケ部門を統括し、会員数4倍・売上6倍を達成\n1,500億円市場の新規事業を戦略立案から支援し3年でシェア10%超を確立',
+        Introduction:'EC・通信・メーカー領域で事業戦略とデジタルマーケティングを横断してきた人材。市場分析からKPI設計、収益モデル構築まで上流から伴走可能。',
+        skill:'事業戦略,広告戦略,Web広告,データ分析,LTV設計,新規事業立ち上げ' },
+      { Career:'マーケター歴 3年以上', title:'元）Septeni Japan',
+        'Available area':'BtoC / BtoB / 広告予算月300万円以上',
+        'Favorite subject':'広告運用改善,獲得単価削減,SNS広告,配信設計',
+        Achievements:'獲得単価を前任代理店比50%まで改善し、広告予算を6倍増額\nコンペ提案にて配信設計を抜本改善し受注、配信開始2ヶ月で獲得単価を前任比80%まで改善',
+        Introduction:'既存・新規顧客に対し、データ分析を起点に仮説立案から提案・実行まで主導してきた若手アカウントプランナー。',
+        skill:'Google/Yahoo広告,SNS広告,バナー/LP制作,広告運用,MA/CRM,ディレクション' },
+      { Career:'マーケター歴 12年以上', title:'元）電通 シニアプランナー',
+        'Available area':'BtoB / BtoC / 広告予算月500万円以上',
+        'Favorite subject':'ブランド戦略,統合コミュニケーション,メディアプランニング,コンテンツ設計',
+        Achievements:'大手消費財クライアントのブランドリニューアルを主導し、認知率40pt向上\n統合キャンペーン設計でROAS 3.2倍を達成',
+        Introduction:'大手広告代理店でナショナルクライアントを10年以上担当。ブランド戦略から統合コミュニケーション設計まで上流から一気通貫で対応できる戦略家。',
+        skill:'ブランド戦略,統合コミュニケーション,マスメディア,デジタル統合,コンテンツマーケ,メディア最適化' },
+    ];
+    renderAdvisors(fallback);
+  }
+}
+
+initCarouselControls();
+loadAdvisors();
+
+/* ─────────────────────────────────────
+   SCROLL ANIMATIONS
+───────────────────────────────────── */
+function observeFadeUps() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-up:not(.visible)').forEach(el => observer.observe(el));
+}
+
+observeFadeUps();
+</script>
+
+<!-- ══════════════════════════════════════════════════════════
+     GITHUB AUTO-DEPLOY PANEL
+     ・TokenはlocalStorageに保存（Claudeには渡らない）
+     ・ページ右下に固定表示
+     ・Push後 → GitHub Pages / Cloudflare Pages に自動反映
+══════════════════════════════════════════════════════════ -->
+<style>
+  /* ── Deploy Panel ── */
+  #deploy-toggle {
+    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--gold); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(184,150,74,0.4);
+    font-size: 22px; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  #deploy-toggle:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(184,150,74,0.5); }
+
+  #deploy-panel {
+    position: fixed; bottom: 88px; right: 24px; z-index: 9999;
+    width: 340px;
+    background: var(--navy);
+    border: 1px solid var(--rule);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+    display: none;
+    flex-direction: column;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  #deploy-panel.open { display: flex; }
+
+  .dp-header {
+    padding: 16px 20px 12px;
+    border-bottom: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .dp-title {
+    font-size: 12px; letter-spacing: 0.15em; color: var(--gold);
+    text-transform: uppercase; font-weight: 500;
+  }
+  .dp-close {
+    background: none; border: none; color: rgba(255,255,255,0.4);
+    cursor: pointer; font-size: 18px; line-height: 1;
+    transition: color 0.2s;
+  }
+  .dp-close:hover { color: var(--white); }
+
+  .dp-body { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+
+  .dp-field label {
+    display: block; font-size: 10px; letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.4); text-transform: uppercase; margin-bottom: 6px;
+  }
+  .dp-field input {
+    width: 100%; padding: 10px 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(184,150,74,0.2);
+    color: var(--white); font-size: 12px;
+    outline: none; box-sizing: border-box;
+    font-family: 'Noto Sans JP', monospace;
+    transition: border-color 0.2s;
+  }
+  .dp-field input:focus { border-color: var(--gold); }
+  .dp-field input::placeholder { color: rgba(255,255,255,0.2); }
+
+  .dp-save-hint {
+    font-size: 10px; color: rgba(255,255,255,0.3);
+    margin-top: 4px; letter-spacing: 0.05em;
+  }
+
+  .dp-btn {
+    width: 100%; padding: 14px;
+    background: var(--gold); color: var(--ink);
+    font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+    border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .dp-btn:hover { background: var(--gold-light); }
+  .dp-btn:active { transform: scale(0.98); }
+  .dp-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .dp-status {
+    padding: 10px 20px 16px;
+    font-size: 11px; line-height: 1.7;
+    border-top: 1px solid var(--rule);
+    display: none;
+  }
+  .dp-status.show { display: block; }
+  .dp-status.success { color: #6ee7a0; }
+  .dp-status.error   { color: #f87171; }
+  .dp-status.loading { color: rgba(255,255,255,0.5); }
+
+  .dp-link {
+    display: inline-block; margin-top: 6px;
+    font-size: 11px; color: var(--gold-light);
+    text-decoration: none; letter-spacing: 0.05em;
+  }
+  .dp-link:hover { text-decoration: underline; }
+
+  .dp-footer {
+    padding: 10px 20px;
+    border-top: 1px solid var(--rule);
+    font-size: 10px; color: rgba(255,255,255,0.2);
+    line-height: 1.6;
+  }
+</style>
+
+<!-- トグルボタン -->
+<button id="deploy-toggle" title="GitHubにデプロイ" aria-label="デプロイパネルを開く">
+  ⇡
+</button>
+
+<!-- デプロイパネル -->
+<div id="deploy-panel" class="open">
+  <div class="dp-header">
+    <span class="dp-title">GitHub Auto Deploy</span>
+    <button class="dp-close" id="dp-close-btn" aria-label="閉じる">✕</button>
+  </div>
+
+  <div class="dp-body">
+    <div class="dp-field">
+      <label>GitHub Personal Access Token</label>
+      <input type="password" id="dp-token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off">
+      <div class="dp-save-hint">✓ ブラウザに保存されます（Claudeには送信されません）</div>
+    </div>
+    <div class="dp-field">
+      <label>GitHubユーザー名</label>
+      <input type="text" id="dp-user" placeholder="aiagentmatsumoto1836">
+    </div>
+    <div class="dp-field">
+      <label>リポジトリ名</label>
+      <input type="text" id="dp-repo" placeholder="kakushin-lp-deploy">
+    </div>
+    <div class="dp-field">
+      <label>ファイル名（GitHub上）</label>
+      <input type="text" id="dp-filename" placeholder="index.html">
+    </div>
+    <button class="dp-btn" id="dp-push-btn" disabled="">
+      <span id="dp-btn-label">処理中...</span>
+    </button>
+  </div>
+
+  <div class="dp-status show loading" id="dp-status">② HTMLをエンコード中...</div>
+
+  <div class="dp-footer">
+    TokenはlocalStorageに保存。<br>
+    Push後 → GitHub Pages / Cloudflare Pages に自動反映されます。
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════
+   GitHub Auto Deploy Logic
+   - Token / User / Repo / Filename を localStorage に保存
+   - GitHub Contents API でファイルをPush（PUT）
+   - 既存ファイルのSHAを取得して上書き
+══════════════════════════════════════════════════════ */
+(function() {
+  const LS = {
+    TOKEN:    'kakushin_gh_token',
+    USER:     'kakushin_gh_user',
+    REPO:     'kakushin_gh_repo',
+    FILENAME: 'kakushin_gh_filename',
+  };
+
+  const $ = id => document.getElementById(id);
+
+  /* 初期値をlocalStorageから復元 */
+  function loadSaved() {
+    $('dp-token').value    = localStorage.getItem(LS.TOKEN)    || '';
+    $('dp-user').value     = localStorage.getItem(LS.USER)     || 'aiagentmatsumoto1836';
+    $('dp-repo').value     = localStorage.getItem(LS.REPO)     || 'kakushin-lp-deploy';
+    $('dp-filename').value = localStorage.getItem(LS.FILENAME) || 'index.html';
+  }
+
+  /* 入力値をlocalStorageに保存 */
+  function saveInputs() {
+    localStorage.setItem(LS.TOKEN,    $('dp-token').value.trim());
+    localStorage.setItem(LS.USER,     $('dp-user').value.trim());
+    localStorage.setItem(LS.REPO,     $('dp-repo').value.trim());
+    localStorage.setItem(LS.FILENAME, $('dp-filename').value.trim());
+  }
+
+  /* ステータス表示 */
+  function setStatus(msg, type = 'loading', link = null) {
+    const el = $('dp-status');
+    el.className = `dp-status show ${type}`;
+    el.innerHTML = msg + (link
+      ? `<br><a class="dp-link" href="${link}" target="_blank" rel="noopener">→ サイトを確認する ↗</a>`
+      : '');
+  }
+
+  /* 現在のHTMLを取得（ページ自身のHTML） */
+  function getCurrentHTML() {
+    return '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  }
+
+  /* Base64エンコード（UTF-8対応） */
+  function toBase64(str) {
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+
+  /* GitHub Contents API でファイルのSHAを取得 */
+  async function getFileSHA(token, user, repo, filename) {
+    const url = `https://api.github.com/repos/${user}/${repo}/contents/${filename}`;
+    const res = await fetch(url, {
+      headers: {
+        'Authorization': `token ${token}`,
+        'Accept': 'application/vnd.github.v3+json',
+      }
+    });
+    if (res.status === 404) return null; // 新規ファイル
+    if (!res.ok) throw new Error(`SHA取得失敗: ${res.status}`);
+    const data = await res.json();
+    return data.sha;
+  }
+
+  /* GitHub Contents API でファイルをPush */
+  async function pushToGitHub() {
+    const token    = $('dp-token').value.trim();
+    const user     = $('dp-user').value.trim();
+    const repo     = $('dp-repo').value.trim();
+    const filename = $('dp-filename').value.trim();
+
+    if (!token || !user || !repo || !filename) {
+      setStatus('⚠️ すべての項目を入力してください。', 'error');
+      return;
+    }
+
+    saveInputs();
+
+    const btn = $('dp-push-btn');
+    btn.disabled = true;
+    $('dp-btn-label').textContent = '処理中...';
+    setStatus('① 現在のファイルSHAを取得中...', 'loading');
+
+    try {
+      /* Step1: 既存ファイルのSHAを取得（上書きに必要） */
+      const sha = await getFileSHA(token, user, repo, filename);
+      setStatus('② HTMLをエンコード中...', 'loading');
+
+      /* Step2: 現在のHTMLをBase64エンコード */
+      const html    = getCurrentHTML();
+      const content = toBase64(html);
+
+      /* Step3: PUTリクエストでPush */
+      setStatus('③ GitHubにPush中...', 'loading');
+      const now = new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' });
+      const body = {
+        message: `deploy: KAKUSHIN LP updated ${now}`,
+        content: content,
+        ...(sha ? { sha } : {}), // 既存ファイルの場合はSHA必須
+      };
+
+      const url = `https://api.github.com/repos/${user}/${repo}/contents/${filename}`;
+      const res = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `token ${token}`,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.message || `HTTP ${res.status}`);
+      }
+
+      const data = await res.json();
+      const siteUrl = `https://${user}.github.io/${repo}/`;
+
+      setStatus(
+        `✅ Push完了！\n${now}\nGitHub Pages に反映まで約1〜2分`,
+        'success',
+        siteUrl
+      );
+
+    } catch (e) {
+      setStatus(`❌ エラー: ${e.message}`, 'error');
+    } finally {
+      btn.disabled = false;
+      $('dp-btn-label').textContent = '⇡ GitHubにPushする';
+    }
+  }
+
+  /* イベント設定 */
+  document.addEventListener('DOMContentLoaded', () => {
+    loadSaved();
+
+    $('deploy-toggle').addEventListener('click', () => {
+      $('deploy-panel').classList.toggle('open');
+    });
+
+    $('dp-close-btn').addEventListener('click', () => {
+      $('deploy-panel').classList.remove('open');
+    });
+
+    $('dp-push-btn').addEventListener('click', pushToGitHub);
+
+    /* Enterキーでもpush */
+    ['dp-token','dp-user','dp-repo','dp-filename'].forEach(id => {
+      $(id).addEventListener('keydown', e => {
+        if (e.key === 'Enter') pushToGitHub();
+      });
+    });
+  });
+})();
+</script>
+
+
+
+</body></html>
